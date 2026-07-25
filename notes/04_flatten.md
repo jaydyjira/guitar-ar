@@ -2,6 +2,7 @@
 You have four points describing a tilted, skewed rectangle somewhere in your camera image — call that the "source."
 You also get to invent a perfectly clean rectangle, straight on, any size you like — call that the "destination."
 A perspective transform is a single matrix that describes exactly how to warp one into the other. Once you have that matrix, you can apply it to the whole image, not just your four points — and the result is your guitar neck redrawn as if the camera were looking at it perfectly straight-on, no matter how it was actually tilted or rotated when you clicked.
+**matrix describe the motion of tranforming source point into destination point.
 
 # Questions
 ## Why don't I store the coordinates in np.array at the first place?
