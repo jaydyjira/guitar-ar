@@ -1,0 +1,2 @@
+venv has nothing to do with how many people are on a project. It's about how many projects are on your computer.
+imagine six months from now you start a second Python project, and that one needs OpenCV 4 for some tutorial you're following. But your guitar project needs OpenCV 5. Without venvs, there's one shared pile of libraries on your machine — installing 4 for the new project overwrites 5, and now your guitar app breaks. You'd have no idea why, since you didn't touch its code. With venvs, each project has its own private box, and they never see each other.

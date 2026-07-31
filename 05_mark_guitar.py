@@ -46,10 +46,9 @@ while True:
 
         # Flattened rectangle to real image
         matrix_inv = cv2.getPerspectiveTransform(dst_points, src_points) # just two arguments swapped
-        overlay = np.zeros((300, 800, 3), dtype=np.uint8)
-        cv2.rectangle(overlay, (0, 0), (800, 300), (0, 255, 0), 5)
-        warped_overlay = cv2.warpPerspective(overlay, matrix_inv, (frame.shape[1], frame.shape[0]))
-        frame = cv2.addWeighted(frame, 1, warped_overlay, 1, 0)
+        corners = np.array([[[0,0], [0,300], [800,300], [800,0]]], dtype=np.float32)
+        real_corners = cv2.perspectiveTransform(corners, matrix_inv)
+        cv2.polylines(frame, [real_corners.astype(np.int32)], True, (0,255,0), 2)
         
     cv2.putText(frame, instruction, (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     
